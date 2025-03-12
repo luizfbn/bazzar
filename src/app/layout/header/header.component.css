@@ -1,0 +1,40 @@
+.header {
+  border-bottom: 1px solid var(--color-c3);
+}
+
+.nav {
+  max-width: 80rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logo > img {
+  display: block;
+}
+
+.btn-cart {
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 0;
+  padding: 0 0.25rem;
+  transition: 0.2s;
+}
+
+.btn-cart:hover {
+  transform: scale(1.2);
+}
+
+.btn-cart > svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-c3);
+}
