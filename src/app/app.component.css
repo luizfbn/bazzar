@@ -1,0 +1,3 @@
+.main {
+  min-height: calc(100vh - (89px + 255px)); /* header + footer */
+}
