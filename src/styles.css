@@ -33,3 +33,7 @@ li {
   padding: 0;
   margin: 0;
 }
+
+.container {
+  max-width: 60rem;
+}
