@@ -1,0 +1,53 @@
+.card {
+  width: 220px;
+  height: 255px;
+  padding: 1rem;
+  outline: 1px solid var(--color-c3);
+  text-decoration: none;
+  transition: box-shadow 0.5s;
+}
+
+.card:hover {
+  box-shadow: 8px 8px var(--color-c3);
+}
+
+.image {
+  margin: 0;
+  height: 163px;
+  width: 188px;
+}
+
+.image > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.separator {
+  width: 30px;
+  height: 1px;
+  margin: 0.75rem auto;
+  background-color: var(--color-c3);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+  line-height: 1;
+  color: var(--color-c3);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1;
+  color: var(--color-c2);
+  margin-bottom: 0.25rem;
+}

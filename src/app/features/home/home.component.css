@@ -1,0 +1,16 @@
+.home {
+  margin: 0 auto;
+  padding: 5rem;
+}
+
+.products {
+  max-width: 48.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 220px);
+  justify-content: center;
+  gap: 2.5rem 3.75rem;
+}
+
+.products a {
+  text-decoration: none;
+}
