@@ -37,3 +37,8 @@ li {
 .container {
   max-width: 60rem;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
