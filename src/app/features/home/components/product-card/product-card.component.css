@@ -12,6 +12,7 @@
 }
 
 .image {
+  position: relative;
   margin: 0;
   height: 163px;
   width: 188px;

@@ -1,14 +1,15 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'product-card',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css',
 })
 export class ProductCardComponent {
   @Input({ required: true }) title!: string;
-  @Input() subtitle: string = '';
+  @Input() subtitle: string | null = '';
   @Input({ required: true }) img!: string;
   @Input() alt: string = '';
 }
