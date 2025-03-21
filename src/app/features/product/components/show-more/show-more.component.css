@@ -1,0 +1,21 @@
+.text {
+  display: inline;
+}
+
+.btn {
+  font-family: var(--type);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.015rem;
+  color: var(--color-c2);
+  padding: 0.25rem;
+  background-color: var(--color-c1);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--color-c3);
+  color: var(--color-c1);
+}

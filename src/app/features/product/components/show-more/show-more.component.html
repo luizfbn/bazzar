@@ -1,0 +1,10 @@
+@if (text.length > length) {
+<p class="text">
+  {{ showMore ? text : `${text.substring(0, length)}...`}}
+</p>
+<button type="button" class="btn" (click)="handleClick()">
+  {{ showMore ? "Ver menos" : "Ver mais" }}
+</button>
+} @else {
+<p class="text">{{ text }}</p>
+}
