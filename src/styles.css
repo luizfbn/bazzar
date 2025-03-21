@@ -42,3 +42,9 @@ li {
   display: flex;
   justify-content: center;
 }
+
+.no-content {
+  font-size: 1.25rem;
+  color: var(--color-c3);
+  text-align: center;
+}

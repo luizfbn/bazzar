@@ -14,9 +14,3 @@
 .products a {
   text-decoration: none;
 }
-
-.not-found {
-  font-size: 1.25rem;
-  color: var(--color-c3);
-  text-align: center;
-}
