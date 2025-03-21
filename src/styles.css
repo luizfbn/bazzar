@@ -48,3 +48,47 @@ li {
   color: var(--color-c3);
   text-align: center;
 }
+
+.button {
+  border: 1px solid var(--color-c3);
+  background-color: var(--color-c1);
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-family: var(--type);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.00875rem;
+  line-height: 1;
+  color: var(--color-c3);
+  transition: 0.25s linear;
+}
+
+.button:not(:disabled):hover {
+  background-color: var(--color-c3);
+  color: var(--color-c1);
+}
+
+.button.alt {
+  color: var(--color-c1);
+  border: 1px solid var(--color-c3);
+  background-color: var(--color-c3);
+}
+
+.button.alt:not(:disabled):hover {
+  color: var(--color-c3);
+  background-color: var(--color-c1);
+}
+
+.button:disabled {
+  border-color: var(--color-c2);
+  color: var(--color-c2);
+  cursor: not-allowed;
+}
+
+.button.alt:disabled {
+  background-color: var(--color-c2);
+  border-color: var(--color-c2);
+  color: var(--color-c1);
+  cursor: not-allowed;
+}
