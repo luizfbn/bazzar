@@ -2,8 +2,9 @@
   width: fit-content;
   font-size: 1.25rem;
   letter-spacing: 0.0125rem;
-  background: linear-gradient(90deg, var(--color-c3) 50%, #0000 0) right/200%
-    100%;
+  background: linear-gradient(90deg, var(--color-c3) 50%, var(--color-c1) 0%)
+    right;
+  background-size: 200% 100%;
   animation: loading 2s infinite linear;
 }
 
