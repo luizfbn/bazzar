@@ -4,7 +4,7 @@ import { CurrencyPipe } from '@angular/common';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { LoadingComponent } from '../../shared/components/loading/loading.component';
 import { ProductService } from '../../services/product.service';
-import { Product } from '../../shared/models/product.model';
+import { IProduct } from '../../shared/models/product.model';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { Product } from '../../shared/models/product.model';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  products: Product[] = [];
+  products: IProduct[] = [];
   loading = false;
 
   constructor(private productService: ProductService) {}

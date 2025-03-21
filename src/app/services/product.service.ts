@@ -6,7 +6,7 @@ import {
 import { Injectable } from '@angular/core';
 import { catchError, retry, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Product, ProductCheckout } from '../shared/models/product.model';
+import { IProduct, IProductCheckout } from '../shared/models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,17 +18,17 @@ export class ProductService {
 
   getProducts() {
     return this.httpClient
-      .get<Product[]>(`${this.url}/products`)
+      .get<IProduct[]>(`${this.url}/products`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getProductById(id: string) {
     return this.httpClient
-      .get<Product>(`${this.url}/products/${id}`)
+      .get<IProduct>(`${this.url}/products/${id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  checkoutProduct(products: ProductCheckout[]) {
+  checkoutProduct(products: IProductCheckout[]) {
     return this.httpClient
       .post<string>(this.url, JSON.stringify(products), {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

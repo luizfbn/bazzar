@@ -1,4 +1,4 @@
-export interface Product {
+export interface IProduct {
   id: string;
   name: string;
   active: boolean;
@@ -9,7 +9,7 @@ export interface Product {
   currency: string;
 }
 
-export interface ProductCheckout {
+export interface IProductCheckout {
   price: string;
   quantity: number;
 }
