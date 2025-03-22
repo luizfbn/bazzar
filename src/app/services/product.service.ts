@@ -30,8 +30,11 @@ export class ProductService {
 
   checkoutProduct(products: IProductCheckout[]) {
     return this.httpClient
-      .post<string>(this.url, JSON.stringify(products), {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      .post<string>(`${this.url}/checkout`, JSON.stringify(products), {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        responseType: 'text' as 'json',
       })
       .pipe(retry(2), catchError(this.handleError));
   }
