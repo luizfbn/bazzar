@@ -14,9 +14,9 @@
     </li>
     }
   </ul>
-  } @else if (!loading) {
+  } @else if (!isLoading) {
   <p class="no-content">Nenhum produto encontrado.</p>
-  } @if (loading) {
+  } @if (isLoading) {
   <app-loading class="center"></app-loading>
   }
 </section>

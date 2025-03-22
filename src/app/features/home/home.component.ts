@@ -14,7 +14,7 @@ import { IProduct } from '../../shared/models/product.model';
 })
 export class HomeComponent {
   products: IProduct[] = [];
-  loading = false;
+  isLoading = false;
 
   constructor(private productService: ProductService) {}
 
@@ -23,11 +23,11 @@ export class HomeComponent {
   }
 
   getProducts() {
-    this.loading = true;
+    this.isLoading = true;
     this.productService.getProducts().subscribe({
       next: (products) => (this.products = products),
-      error: () => (this.loading = false),
-      complete: () => (this.loading = false),
+      error: () => (this.isLoading = false),
+      complete: () => (this.isLoading = false),
     });
   }
 }
