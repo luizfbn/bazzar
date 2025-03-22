@@ -39,9 +39,13 @@ export class ProductService {
   private handleError(error: HttpErrorResponse) {
     // client side
     if (error.error instanceof ErrorEvent) {
-      return throwError(() => new Error(error.error.message));
+      console.error('Client error:', error.error.message);
+      return throwError(
+        () => new Error(`Client error: ${error.error.message}`)
+      );
     }
     // server side
+    console.error(`Server error: ${error.status} - ${error.message}`);
     return throwError(
       () => new Error(`Error ${error.status} - ${error.message}`)
     );
