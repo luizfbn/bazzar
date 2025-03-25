@@ -2,7 +2,12 @@
   @if (product) {
   <article class="content">
     <figure class="image">
-      <img src="{{ product.images[0] }}" alt="{{ product.name }}" />
+      <img
+        src="{{ product.images[0] }}"
+        alt="{{ product.name }}"
+        height="400"
+        width="400"
+      />
     </figure>
     <section class="about">
       <h2 class="name">{{ product.name }}</h2>
