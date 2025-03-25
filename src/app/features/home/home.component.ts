@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { LoadingComponent } from '../../shared/components/loading/loading.component';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../services/product/product.service';
 import { IProduct } from '../../shared/models/product.model';
 
 @Component({

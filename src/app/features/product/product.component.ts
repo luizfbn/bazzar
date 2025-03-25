@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
-import { ProductService } from '../../services/product.service';
-import { IProduct } from '../../shared/models/product.model';
 import { LoadingComponent } from '../../shared/components/loading/loading.component';
 import { ShowMoreComponent } from './components/show-more/show-more.component';
+import { ProductService } from '../../services/product/product.service';
+import { PaymentService } from '../../services/payment/payment.service';
+import { IProduct } from '../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -20,6 +21,7 @@ export class ProductComponent {
 
   constructor(
     private productService: ProductService,
+    private paymentService: PaymentService,
     private readonly route: ActivatedRoute
   ) {}
 
@@ -41,8 +43,8 @@ export class ProductComponent {
 
   buyNow(product: IProduct) {
     this.isBuyNowBtnDisabled = true;
-    this.productService
-      .checkoutProduct([
+    this.paymentService
+      .createPaymentCheckout([
         {
           price: product.defaultPrice,
           quantity: 1,

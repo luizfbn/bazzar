@@ -5,36 +5,35 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, retry, throwError } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { IProduct, IProductCheckout } from '../shared/models/product.model';
+import { environment } from '../../../environments/environment';
+import { IProductCheckout } from '../../shared/models/product.model';
+import { ICustomer } from '../../shared/models/customer.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
+export class PaymentService {
   private url = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) {}
 
-  getProducts() {
+  createPaymentCheckout(products: IProductCheckout[]) {
     return this.httpClient
-      .get<IProduct[]>(`${this.url}/products`)
-      .pipe(retry(2), catchError(this.handleError));
-  }
-
-  getProductById(id: string) {
-    return this.httpClient
-      .get<IProduct>(`${this.url}/products/${id}`)
-      .pipe(retry(2), catchError(this.handleError));
-  }
-
-  checkoutProduct(products: IProductCheckout[]) {
-    return this.httpClient
-      .post<string>(`${this.url}/checkout`, JSON.stringify(products), {
+      .post<string>(`${this.url}/payment/checkout`, JSON.stringify(products), {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),
         responseType: 'text' as 'json',
+      })
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getPaymentStatus(sessionId: string) {
+    return this.httpClient
+      .get<ICustomer>(`${this.url}/payment/status`, {
+        params: {
+          session_id: sessionId,
+        },
       })
       .pipe(retry(2), catchError(this.handleError));
   }
