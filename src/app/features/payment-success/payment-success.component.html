@@ -1,0 +1,15 @@
+<section class="payment-success container">
+  @if (!isLoading) {
+  <h2 class="title">Compra realizada com sucesso!</h2>
+  <p class="subtitle">
+    {{ customer?.name ? `Olá, ${customer?.name}.` : '' }} Obrigado por escolher
+    o Bazzar! Sua compra foi confirmada e estamos cuidando de cada detalhe para
+    garantir uma experiência incrível para você!
+  </p>
+  <button type="button" class="button" routerLink="/">
+    Voltar para página inicial
+  </button>
+  } @else {
+  <app-loading class="center"></app-loading>
+  }
+</section>

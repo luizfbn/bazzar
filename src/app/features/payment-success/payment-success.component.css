@@ -1,0 +1,32 @@
+.payment-success {
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--color-c3);
+  letter-spacing: 0.03rem;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  max-width: 20ch;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--color-c3);
+  margin-bottom: 2.5rem;
+  max-width: 45ch;
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 2rem;
+    letter-spacing: 0.02rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}
