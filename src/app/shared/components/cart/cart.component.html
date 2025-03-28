@@ -1,0 +1,74 @@
+<div class="cart-wrapper" [class.hidden]="!cartService.isCartOpen()">
+  <div class="cart-background" (click)="cartService.setCartOpen(false)"></div>
+  <section class="cart">
+    <header class="header">
+      <h2 class="title">
+        Carrinho
+        {{ cartService.cart().length ? `(${cartService.cart().length})` : '' }}
+      </h2>
+      <button
+        class="btn-close"
+        type="button"
+        title="Fechar"
+        (click)="cartService.setCartOpen(false)"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="#393939"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z"
+          />
+        </svg>
+      </button>
+    </header>
+    @if (cartService.cart().length) {
+    <ul class="products">
+      @for (product of cartService.cart(); track product.price) {
+      <li class="product">
+        <figure class="image">
+          <img
+            [src]="product.images[0]"
+            [alt]="product.name"
+            width="80"
+            height="80"
+          />
+        </figure>
+        <h3 class="name">{{ product.name }}</h3>
+        <p class="price">
+          {{ product.price | currency : product.currency.toUpperCase() }}
+        </p>
+        <button
+          class="btn-remove"
+          type="button"
+          (click)="cartService.removeProduct(product)"
+        >
+          Remover
+        </button>
+      </li>
+      }
+    </ul>
+    <footer class="footer">
+      <p class="total">
+        Total
+        <span class="total-price">{{
+          totalPrice() | currency : cartService.cart()[0].currency.toUpperCase()
+        }}</span>
+      </p>
+      <button
+        type="button"
+        class="button alt"
+        (click)="completePurchase(cartService.cart())"
+        [disabled]="isPurchaseBtnDisabled"
+      >
+        {{ isPurchaseBtnDisabled ? "Carregando..." : "Finalizar compra" }}
+      </button>
+    </footer>
+    } @else {
+    <p class="no-content">Carrinho vazio</p>
+    }
+  </section>
+</div>

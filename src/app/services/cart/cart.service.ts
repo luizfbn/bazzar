@@ -6,9 +6,14 @@ import { IProduct } from '../../shared/models/product.model';
 })
 export class CartService {
   cart = signal<IProduct[]>([]);
+  isCartOpen = signal<boolean>(false);
 
   setCart(products: IProduct[]) {
     this.cart.set(products);
+  }
+
+  setCartOpen(isOpen: boolean) {
+    this.isCartOpen.set(isOpen);
   }
 
   addProduct(product: IProduct) {
