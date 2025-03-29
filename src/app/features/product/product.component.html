@@ -3,8 +3,8 @@
   <article class="content">
     <figure class="image">
       <img
-        src="{{ product.images[0] }}"
-        alt="{{ product.name }}"
+        [src]="product.images[0]"
+        [alt]="product.name"
         height="400"
         width="400"
       />
@@ -24,15 +24,16 @@
         <button
           type="button"
           class="button"
-          [disabled]="isBuyNowBtnDisabled || isAddCartBtnDisabled"
+          (click)="addToCart(product)"
+          [disabled]="isBuyNowBtnDisabled || isProductInCart()"
         >
-          {{ isAddCartBtnDisabled ? "Carregando..." : "Adicionar ao carrinho" }}
+          Adicionar ao carrinho
         </button>
         <button
           type="button"
           class="button alt"
           (click)="buyNow(product)"
-          [disabled]="isBuyNowBtnDisabled || isAddCartBtnDisabled"
+          [disabled]="isBuyNowBtnDisabled"
         >
           {{ isBuyNowBtnDisabled ? "Carregando..." : "Comprar agora" }}
         </button>
