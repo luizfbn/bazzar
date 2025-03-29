@@ -165,5 +165,5 @@
 
 .footer .button {
   display: block;
-  justify-self: center;
+  margin: 0 auto;
 }
