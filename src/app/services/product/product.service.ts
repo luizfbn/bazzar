@@ -1,8 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, retry, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { IProduct } from '../../shared/models/product.model';
+import { handleError } from '../../shared/utils/handle-error';
 
 @Injectable({
   providedIn: 'root',
@@ -15,27 +16,12 @@ export class ProductService {
   getProducts() {
     return this.httpClient
       .get<IProduct[]>(`${this.url}/products`)
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(retry(2), catchError(handleError));
   }
 
   getProductById(id: string) {
     return this.httpClient
       .get<IProduct>(`${this.url}/products/${id}`)
-      .pipe(retry(2), catchError(this.handleError));
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    // client side
-    if (error.error instanceof ErrorEvent) {
-      console.error('Client error:', error.error.message);
-      return throwError(
-        () => new Error(`Client error: ${error.error.message}`)
-      );
-    }
-    // server side
-    console.error(`Server error: ${error.status} - ${error.message}`);
-    return throwError(
-      () => new Error(`Error ${error.status} - ${error.message}`)
-    );
+      .pipe(retry(2), catchError(handleError));
   }
 }

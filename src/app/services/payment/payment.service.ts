@@ -1,13 +1,10 @@
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, retry, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { IProductCheckout } from '../../shared/models/product.model';
 import { ICustomer } from '../../shared/models/customer.model';
+import { handleError } from '../../shared/utils/handle-error';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +22,7 @@ export class PaymentService {
         }),
         responseType: 'text' as 'json',
       })
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(retry(2), catchError(handleError));
   }
 
   getPaymentStatus(sessionId: string) {
@@ -35,21 +32,6 @@ export class PaymentService {
           session_id: sessionId,
         },
       })
-      .pipe(retry(2), catchError(this.handleError));
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    // client side
-    if (error.error instanceof ErrorEvent) {
-      console.error('Client error:', error.error.message);
-      return throwError(
-        () => new Error(`Client error: ${error.error.message}`)
-      );
-    }
-    // server side
-    console.error(`Server error: ${error.status} - ${error.message}`);
-    return throwError(
-      () => new Error(`Error ${error.status} - ${error.message}`)
-    );
+      .pipe(retry(2), catchError(handleError));
   }
 }
